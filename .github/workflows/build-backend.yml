@@ -1,0 +1,44 @@
+name: "[BACKEND] Build"
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "`x.y.z-backend.NN` 형태로 버전을 입력해주세요. (ex. 0.1.0-backend.05)"
+        required: true
+        default: 0.0.1-backend.00
+env:
+    TAG: ${{github.event.inputs.tag}}
+
+permissions:
+    id-token: write
+    contents: write
+
+jobs:
+  condition_check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checking Tag
+        run: |
+          if [[ !(${{ env.TAG }} =~ ^(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\-backend\.[0-9]{2}$) ]];
+          then
+            echo "You entered an incorrect tag format."
+            exit 1
+          fi
+  tagging:
+    needs: condition_check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Create Tag
+        run: |
+          git tag ${{env.TAG}}
+          git push -u origin ${{env.TAG}}
+  build:
+    needs: tagging
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 
+        uses: actions/checkout@v3
+    #   - name: build & push
+    #     run:
+    #         ./gradlw 
