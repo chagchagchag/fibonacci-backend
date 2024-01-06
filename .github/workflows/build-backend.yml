@@ -39,6 +39,7 @@ jobs:
     steps:
       - name: Checkout 
         uses: actions/checkout@v3
-    #   - name: build & push
-    #     run:
-    #         ./gradlw 
+      - name: build & push
+        run: |
+            fibonacci-backend-web/gradlew jib
+            fibonacci-backend-cache/gradlew jib
