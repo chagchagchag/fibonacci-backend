@@ -37,7 +37,7 @@ jib {
 
 	to {
 		image = "chagchagchag/fibonacci-backend-web"
-		tags = ["0.0.1", "latest"]
+		tags = ["0.0.1.bakcend.01", "latest"]
 	}
 
 	container {

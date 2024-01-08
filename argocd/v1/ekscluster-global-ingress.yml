@@ -1,0 +1,26 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: argocd
+  namespace: argocd
+  annotations:
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}]'
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/healthcheck-path: /healthz
+    alb.ingress.kubernetes.io/healthcheck-protocol: HTTP
+    alb.ingress.kubernetes.io/success-codes: '200'
+    alb.ingress.kubernetes.io/security-groups: sg-0dfb95642ecc23d76
+    alb.ingress.kubernetes.io/subnets: subnet-06fe014719b653560,subnet-023fe2ec39f326241,subnet-0735aaf15bfeabec6
+spec:
+  ingressClassName: alb
+  rules:
+    - http:
+        paths:
+          - path: /
+            backend:
+              service:
+                name: argocd-server-nodeport
+                port:
+                  number: 80
+            pathType: Prefix
