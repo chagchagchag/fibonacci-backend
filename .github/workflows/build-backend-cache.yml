@@ -56,6 +56,5 @@ jobs:
 
       - name: build & push
         run: |
-#          chmod +x gradlew
           ./gradlew fibonacci-backend-cache:clean
           ./gradlew fibonacci-backend-cache:jib
