@@ -28,13 +28,12 @@ tasks.named('test') {
 
 jib {
 	from {
-		"amazoncorretto:17"
+		image = "amazoncorretto:17"
 	}
 
 	to{
 		image = "chagchagchag/fibonacci-backend-cache"
 		tags = ["0.0.1.bakcend.01", "latest" ]
-//		tags = ["0.0.1", "latest" , "$System.env.message"]
 	}
 
 	container{
