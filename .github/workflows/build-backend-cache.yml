@@ -3,15 +3,15 @@ on:
   workflow_dispatch:
     inputs:
       tag:
-        description: "`x.y.z` 형태로 버전을 입력해주세요. (ex. 0.1.0)"
+        description: "`x.y.z.fibonacci-backend-cache.k` 형태로 버전을 입력해주세요. (ex. 0.1.0.fibonacci-backend-cache.01)"
         required: true
-        default: 0.0.1
+        default: 0.0.1.fibonacci-backend-cache.01
 env:
-    TAG: ${{github.event.inputs.tag}}
+  TAG: ${{github.event.inputs.tag}}
 
 permissions:
-    id-token: write
-    contents: write
+  id-token: write
+  contents: write
 
 jobs:
   condition_check:
