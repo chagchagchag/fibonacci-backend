@@ -19,6 +19,8 @@ $ cd k8s/sh
 $ source start.sh
 $ curl http://localhost/fibonacci/2
 2
+$ curl http://localhost/fibonacci/11?api-key=abcd-efgh-ijkl-1111
+89
 ```
 
 <br>
