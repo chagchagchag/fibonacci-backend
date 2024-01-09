@@ -57,10 +57,11 @@ ArgoCD 설치과정은 추후 별도의 문서와 예제로 따로 정리해두�
 
 
 
-**Rollout 배포**<br>
+**ArgoCD Rollouts 라이브러리를 이용한 배포**<br>
 
-ArgoCD 에서는 Rollout 배포를 지원하는데, 이번 프로젝트는 Rollout 기반의 무중단 배포프로세스를 구현할 예정입니다. Kustomize 작업이 완료 된 후 Rollout 배포 프로세스 작업을 시작하고, Rollout 배포 과정과 개념들을 문서로 정리해둘 예정입니다.<br>
+ArgoCD 에서는 Rollouts 라이브러리를 이용해 Blue/Green, Canary, Rolling Update 등의 다양한 배포 방법을 지원합니다. 이번 프로젝트의 v0.0.1 버전에서는 이 3 종류의 배포방식을 직접 예제로 남기고 문서로 정리할 예정입니다.<br>
 
+현재 작업 중인 Kustomize 작업이 완료 된 후 ArgoCD 를 활용한 다양한 배포 방식을 정리해두겠습니다.<br>
 <br>
 
 
