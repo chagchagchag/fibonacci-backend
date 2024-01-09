@@ -59,7 +59,7 @@ ArgoCD 설치과정은 추후 별도의 문서와 예제로 따로 정리해두�
 
 **Rollout 배포**<br>
 
-ArgoCD 에서는 Rollout 배포를 지원하는데, Kustomize 작업이 완료 된 후 Rollout 배포 과정과 개념들을 문서로 정리해둘 예정입니다.<br>
+ArgoCD 에서는 Rollout 배포를 지원하는데, 이번 프로젝트는 Rollout 기반의 무중단 배포프로세스를 구현할 예정입니다. Kustomize 작업이 완료 된 후 Rollout 배포 프로세스 작업을 시작하고, Rollout 배포 과정과 개념들을 문서로 정리해둘 예정입니다.<br>
 
 <br>
 
