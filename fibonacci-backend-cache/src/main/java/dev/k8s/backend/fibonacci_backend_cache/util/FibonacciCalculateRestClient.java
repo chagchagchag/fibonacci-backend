@@ -8,7 +8,7 @@ import java.math.BigDecimal;
 import java.util.Optional;
 
 @Component
-public class FibonacciCalculator {
+public class FibonacciCalculateRestClient {
     private final RestClient fibonacciClient = RestClient.create();
     public Optional<BigDecimal> requestGetFibonacci(int number) {
         String result = fibonacciClient.get()

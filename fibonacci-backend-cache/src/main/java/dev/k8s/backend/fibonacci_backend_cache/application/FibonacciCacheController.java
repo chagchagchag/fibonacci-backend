@@ -1,7 +1,7 @@
 package dev.k8s.backend.fibonacci_backend_cache.application;
 
 import dev.k8s.backend.fibonacci_backend_cache.exception.ApiKeyNotExistException;
-import dev.k8s.backend.fibonacci_backend_cache.util.FibonacciCalculator;
+import dev.k8s.backend.fibonacci_backend_cache.util.FibonacciCalculateRestClient;
 import dev.k8s.backend.fibonacci_backend_cache.util.FibonacciTaskQueue;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,16 +20,16 @@ public class FibonacciCacheController {
     private String apiKey;
 
     private final FibonacciResultCacheService fibonacciResultCacheService;
-    private final FibonacciCalculator fibonacciCalculator;
+    private final FibonacciCalculateRestClient fibonacciCalculateRestClient;
     private final FibonacciTaskQueue fibonacciTaskQueue;
 
     public FibonacciCacheController(
         FibonacciResultCacheService fibonacciResultCacheService,
-        FibonacciCalculator fibonacciCalculator,
+        FibonacciCalculateRestClient fibonacciCalculateRestClient,
         FibonacciTaskQueue fibonacciTaskQueue
     ){
         this.fibonacciResultCacheService = fibonacciResultCacheService;
-        this.fibonacciCalculator = fibonacciCalculator;
+        this.fibonacciCalculateRestClient = fibonacciCalculateRestClient;
         this.fibonacciTaskQueue = fibonacciTaskQueue;
     }
 
@@ -57,7 +57,7 @@ public class FibonacciCacheController {
                         };
                     }
 
-                    return fibonacciCalculator
+                    return fibonacciCalculateRestClient
                             .requestGetFibonacci(number)
                             .map(result -> {
                                 fibonacciResultCacheService.putResult(number, result);
