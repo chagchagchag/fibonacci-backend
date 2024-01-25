@@ -1,0 +1,5 @@
+FROM amazoncorretto:17
+EXPOSE 8080
+WORKDIR deploy
+COPY build/libs/fibonacci_backend_cache-0.0.1.jar app.jar
+ENTRYPOINT ["java", "-jar", "app.jar"]
