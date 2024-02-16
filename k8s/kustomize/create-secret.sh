@@ -1,0 +1,1 @@
+kubectl -n fibonacci create secret generic fibonacci-cache-secret --from-literal=api-key=abcd-efgh-ijkl-1111
