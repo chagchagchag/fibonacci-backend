@@ -4,7 +4,9 @@ metadata:
   name: cache-log-storage-claim
   namespace: fibonacci
 spec:
-  storageClassName: local-storage
+  # kubectl get sc 명령을 통해 나타나는 StorageClass 중 하나를 선택했다.
+  # 로컬에서는 kind 클러스터 버전에 따라 standard 가 나올수도 있고 local-storage 가 나올수도 있다.
+  storageClassName: standard
   accessModes:
     - ReadWriteOnce
   resources:
