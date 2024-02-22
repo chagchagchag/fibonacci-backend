@@ -23,6 +23,7 @@ public class FibonacciService {
     private static final String SET_HASH_KEY = "fibonacci:result-set";
 
     public BigDecimal getFibonacci(int number) {
+        delayMs(500);
         if(number == 0) return BigDecimal.ZERO;
         else if(number == 1) return BigDecimal.ONE;
         else if(number == 2) return BigDecimal.ONE;
@@ -33,6 +34,14 @@ public class FibonacciService {
 
             return dp.get(number);
         }
+    }
+
+    public void delayMs(long ms){
+        long spentTime = 0L;
+        long started = System.currentTimeMillis();
+        do {
+            spentTime = System.currentTimeMillis() - started;
+        } while(spentTime < ms);
     }
 
     // **TODO** : 'fibonacci-backend-batch' 로 아래 기능을 이관 예정.
