@@ -1,0 +1,1 @@
+kubectl -n fibonacci logs $1 -c fibonacci --follow
